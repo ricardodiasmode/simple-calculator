@@ -30,17 +30,20 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
     
-    - name: Install dependencies on Ubuntu
-      if: runner.os == 'ubuntu'
+    - name: Install dependencies
+      if: runner.os == 'Windows'
+      run: |
+        if exist requirements.txt (
+          pip install -r requirements.txt
+        )
+    
+    - name: Install dependencies
+      if: runner.os != 'Windows'
       run: |
         if [ -f requirements.txt ]; then
           pip install -r requirements.txt
         fi
-    
-    - name: Install dependencies on Windows
-      if: runner.os == 'Windows'
-      run: |
-        if exist requirements.txt pip install -r requirements.txt
+
     - name: Lint with flake8
       run: |
         # Stop the build if there are Python syntax errors or undefined names
