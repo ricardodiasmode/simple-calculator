@@ -1,17 +1,15 @@
-﻿print("Welcome to a simple calculator.")
+﻿import inputGetter
+
+print("Welcome to a simple calculator.")
 print("You can only do add (+), subtract (-), division (/), and multiplication (*).")
 print("The format must be {number}{space}{operator}{space}{number}. Anything besides that will not work.")
 print("Feel free to start:")
 
 while True:
-    user_input = input()
-    input_list = user_input.split()
 
-    if len(input_list) != 3:
-        print("Invalid input format. Please use the format: {number} {operator} {number}")
+    first_number, operator_string, second_number = inputGetter.get_user_input()
+    if first_number is None:
         continue
-
-    first_number, operator_string, second_number = input_list
 
     try:
         first_number = int(first_number)
