@@ -1,4 +1,5 @@
-﻿import inputGetter
+﻿import calculatorOperator
+import inputGetter
 
 print("Welcome to a simple calculator.")
 print("You can only do add (+), subtract (-), division (/), and multiplication (*).")
@@ -18,20 +19,8 @@ while True:
         print("Invalid input. Please enter valid numbers.")
         continue
 
-    if operator_string == "+":
-        result = first_number + second_number
-    elif operator_string == "-":
-        result = first_number - second_number
-    elif operator_string == "*":
-        result = first_number * second_number
-    elif operator_string == "/":
-        if second_number != 0:
-            result = first_number / second_number
-        else:
-            print("Error: Division by zero is not allowed.")
-            continue
-    else:
-        print("Invalid operator. Please use one of the following: +, -, *, /")
+    result = calculatorOperator.operation(first_number, second_number, operator_string)
+    if result is None:
         continue
 
     print("Result:", result)
