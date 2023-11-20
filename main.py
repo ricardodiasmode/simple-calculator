@@ -16,7 +16,7 @@ while True:
         first_number = int(first_number)
         second_number = int(second_number)
     except ValueError:
-        print("Invalid input. Please enter valid numbers!")
+        print("Invalid input. Please enter valid numbers.")
         continue
 
     result = calculatorOperator.operation(first_number, second_number, operator_string)
